@@ -1,0 +1,92 @@
+﻿@model LojaVirtual.Models.Produtos
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br />
+
+<h2 class="text-info">Novo Produto</h2>
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="p-4 rounded border">
+        <div asp-validation-summary="ModelOnly" class="text-danger">
+
+        </div>
+        <h3>@ViewBag.message</h3>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Nome"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Nome" class="form-control" />
+            </div>
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Preco"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Preco" class="form-control" />
+            </div>
+            <span asp-validation-for="Preco" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Imagem"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Imagem" class="form-control" type="file" accept="image/jpg,image/png,image/jpeg" /> @*Accept - tipos de arquivos que serão aceitos para upload.*@
+            </div>
+            <span asp-validation-for="Imagem" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="ProdutoCor"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="ProdutoCor" class="form-control" />
+            </div>
+            <span asp-validation-for="ProdutoCor" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="CategoriaId"></label>
+            </div>
+            <div class="col-5">
+                <select asp-for="CategoriaId" asp-items="ViewBag.CategoriaId" class="form-control"></select>
+                @*<input asp-for="ProductTypeId" class="form-control"/>*@
+            </div>
+            <span asp-validation-for="CategoriaId" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="TagEspecialId"></label>
+            </div>
+            <div class="col-5">
+                <select asp-for="TagEspecialId" asp-items="ViewBag.TagEspecialId" class="form-control"></select>
+                @*<input asp-for="SpecialTagId" class="form-control" />*@
+            </div>
+            <span asp-validation-for="TagEspecialId" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Disponibilidade"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Disponibilidade" class="" type="checkbox" />
+            </div>
+            <span asp-validation-for="Disponibilidade" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-success" value="Salvar" />
+            <a asp-action="Index" class="btn btn-info">Voltar</a>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

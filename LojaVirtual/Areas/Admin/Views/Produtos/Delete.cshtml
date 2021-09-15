@@ -1,0 +1,88 @@
+﻿@model LojaVirtual.Models.Produtos
+
+@{ ViewData["Title"] = "Delete"; }
+
+<br />
+
+<h2 class="text-info">Excluir Produto</h2>
+<form asp-action="Delete" method="post" enctype="multipart/form-data">
+    <div class="p-4 rounded border row">
+        <div asp-validation-summary="ModelOnly" class="text-danger">
+
+        </div>
+        <div class="col-8">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Nome"></label>
+                </div>
+                <div class="col-8">
+                    <input type="hidden" asp-for="Id" />
+                    <input asp-for="Nome" readonly="readonly" class="form-control" />
+                </div>
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            @*<div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Preco"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Preco" readonly="readonly" class="form-control" />
+                </div>
+                <span asp-validation-for="Preco" class="text-danger"></span>
+            </div>*@
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="ProdutoCor"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="ProdutoCor" readonly="readonly" class="form-control" />
+                </div>
+                <span asp-validation-for="ProdutoCor" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="CategoriaId"></label>
+                </div>
+                <div class="col-8">
+                    @*Categorias.Categoria - Exibe o nome e não o ID da Categoria*@
+                    <input asp-for="Categorias.Categoria" readonly="readonly" class="form-control" />
+                </div>
+                <span asp-validation-for="CategoriaId" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="TagEspecialId"></label>
+                </div>
+                <div class="col-8">
+                    @*TagEspecial.Name - Exibe o nome e não o ID da Tag*@
+                    <input asp-for="TagEspecial.Name" readonly="readonly" class="form-control" />
+                </div>
+                <span asp-validation-for="TagEspecialId" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Disponibilidade"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Disponibilidade" disabled="disabled" class="" type="checkbox" />
+                </div>
+                <span asp-validation-for="Disponibilidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h3>Tem certeza que quer excluir este produto?</h3>
+                <input type="submit" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger" value="Excluir" />
+                <a asp-action="Index" class="btn btn-success">Voltar</a>
+            </div>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-3">
+            <img src="~/@Model.Imagem" style="width:100%; height: 250px; border-radius: 5px;border: 1px solid #efefef" />
+        </div>
+
+    </div>
+</form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

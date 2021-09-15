@@ -1,0 +1,59 @@
+﻿@model LojaVirtual.Models.Categorias
+@{
+    ViewData["Title"] = "Create";
+}
+<br />
+
+<h2 class="text-info">Criar Categoria</h2>
+<form asp-action="Create" method="post">
+    <div class="p-4 rounded border">
+        <div asp-validation-summary="ModelOnly" class="text-danger">
+
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Categoria"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Categoria" class="form-control" />
+            </div>
+            <span asp-validation-for="Categoria" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-success" value="Salvar" />
+            <a asp-action="Index" class="btn btn-primary">Voltar</a>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+@*<h1>Create</h1>
+
+    <h4>ProdutoTipos</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Categoria" class="control-label"></label>
+                    <input asp-for="Categoria" class="form-control" />
+                    <span asp-validation-for="Categoria" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }*@

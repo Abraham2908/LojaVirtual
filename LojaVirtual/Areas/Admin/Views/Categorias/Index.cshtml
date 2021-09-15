@@ -1,0 +1,61 @@
+﻿@using LojaVirtual.Models;
+@model IEnumerable<Categorias>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br /><br />
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">Categorias</h2>
+    </div>
+    <div class="col-6 text-right">
+        <a asp-action="Create" class="btn btn-success"><i class="fas fa-plus"></i>&nbsp; Nova Categoria</a>
+    </div>
+</div>
+<br />
+<div>
+    <table class="table table-striped border"> @*Cria tabela com efeito de listras e com borda, adiconando info > tonalidade azul.*@
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(c => c.Categoria)
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Categoria</td>
+                    <td>
+                        <partial name="_ButtonPartial" model="@item.Id" /> @*Faz referência ao _ButtonPartial na view Shared, onde estão os botões de ações.*@
+                    </td>
+                </tr>
+            }
+    </table>
+</div>
+
+@section scripts {
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+    @* Adiciona script ALERTIFY JS *@
+<script type="text/javascript">
+    $(function () {
+
+            var save = '@TempData["save"]'      @*ADD CAIXA DE SUCESSO NA TELA*@
+            if (save != null) {
+                alertify.success(save);
+            }
+            var edit = '@TempData["edit"]'      @* ADD CAIXA DE EDITADO NA TELA *@
+            if(edit!='') {
+                alertify.success(edit);
+            }
+            var del = '@TempData["delete"]'     @* ADD CAIXA DE EXLUIDO NA TELA *@
+            if (del!='') {
+                alertify.error(del);
+            }
+
+     })
+</script>
+}

@@ -1,0 +1,71 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-LojaVirtual-6A215A85-9027-4C6B-8C8D-1FE2BFC6CA00</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\images\10.jpg" />
+    <Content Remove="wwwroot\images\6.jpg" />
+    <Content Remove="wwwroot\images\7.jpg" />
+    <Content Remove="wwwroot\images\8.jpg" />
+    <Content Remove="wwwroot\images\applle.jpeg" />
+    <Content Remove="wwwroot\images\dell1.jpg" />
+    <Content Remove="wwwroot\images\dell2.jpg" />
+    <Content Remove="wwwroot\images\dell3.jpg" />
+    <Content Remove="wwwroot\images\giant_14465.jpg" />
+    <Content Remove="wwwroot\images\hp1.jpg" />
+    <Content Remove="wwwroot\images\hp2.jpeg" />
+    <Content Remove="wwwroot\images\instock-logo.png" />
+    <Content Remove="wwwroot\images\noimage.PNG" />
+    <Content Remove="wwwroot\images\notinstock.jpg" />
+    <Content Remove="wwwroot\images\s1.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.18" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.18" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.18" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.15">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\10.jpg" />
+    <None Include="wwwroot\images\6.jpg" />
+    <None Include="wwwroot\images\7.jpg" />
+    <None Include="wwwroot\images\8.jpg" />
+    <None Include="wwwroot\images\applle.jpeg" />
+    <None Include="wwwroot\images\dell1.jpg" />
+    <None Include="wwwroot\images\dell2.jpg" />
+    <None Include="wwwroot\images\dell3.jpg" />
+    <None Include="wwwroot\images\giant_14465.jpg" />
+    <None Include="wwwroot\images\hp1.jpg" />
+    <None Include="wwwroot\images\hp2.jpeg" />
+    <None Include="wwwroot\images\instock-logo.png" />
+    <None Include="wwwroot\images\noimage.PNG" />
+    <None Include="wwwroot\images\notinstock.jpg" />
+    <None Include="wwwroot\images\s1.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Areas\Admin\Views\_ViewImports.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Admin\Views\_ViewStart.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

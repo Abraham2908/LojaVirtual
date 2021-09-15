@@ -1,0 +1,36 @@
+﻿@using LojaVirtual.Models;
+@model IEnumerable<TagEspecial>
+ @{
+        ViewData["Title"] = "Index";
+}
+
+<br /><br />
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">Lista de Tag's</h2>
+    </div>
+    <div class="col-6 text-right">
+        <a asp-action="Create" class="btn btn-success"><i class="fas fa-plus"></i>&nbsp; Nova Tag</a>
+    </div>
+</div>
+<br />
+<div>
+    <table class="table table-striped border">
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(c => c.Name)
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>
+                    <partial name="_TagPageButtonPartial" model="@item.Id" />
+                </td>
+            </tr>         
+        }
+    </table>
+</div>
