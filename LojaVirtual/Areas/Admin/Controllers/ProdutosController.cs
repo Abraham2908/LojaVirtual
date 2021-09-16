@@ -10,6 +10,8 @@ using LojaVirtual.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.AspNetCore.Localization;
+using System.Globalization;
 
 namespace LojaVirtual.Areas.Admin.Controllers
 {

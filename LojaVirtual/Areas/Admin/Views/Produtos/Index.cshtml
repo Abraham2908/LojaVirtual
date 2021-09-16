@@ -1,9 +1,7 @@
 ﻿@using LojaVirtual.Models;
 @model IEnumerable<Produtos>
 
-@{
-    ViewData["Title"] = "Index";
-}
+@{ ViewData["Title"] = "Index"; }
 
 <br />
 <br />
@@ -61,30 +59,32 @@
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>@item.Nome</td>
-                    <td>@item.Preco</td>
-                    <td>@item.ProdutoCor</td>
-                    <td>@item.Disponibilidade</td>
-                    <td>@item.Categorias.Categoria</td>
-                    <td>@item.TagEspecial.Name</td>
-                    <td>
-                        <partial name="_ProdutosButtonPartial" model="@item.Id" />
-                    </td>
-                </tr>            
-             }
+<tr>
+    <td>@item.Nome</td>
+    <td>@item.Preco</td>
+    <td>@item.ProdutoCor</td>
+    <td>@item.Disponibilidade</td>
+    <td>@item.Categorias.Categoria</td>
+    <td>@item.TagEspecial.Name</td>
+    <td>
+        <partial name="_ProdutosButtonPartial" model="@item.Id" />
+    </td>
+</tr>
+}
         </tbody>
-
-
     </table>
 </div>
 
-@section scripts{
+@section scripts
+{
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
 
     <script type="text/javascript">
         $(document).ready( function () {
             $('#myTable').DataTable({
+                "oLanguage": {
+                    "sUrl": "https://cdn.datatables.net/plug-ins/1.11.1/i18n/pt_br.json" // Internacionalização - PT-BR
+                },
                 dom: 'Bfrtip',
                 buttons: [
                     'copy', 'csv', 'excel', 'pdf', 'print'
@@ -106,5 +106,5 @@
             }
         })
     </script>
-}
 
+}

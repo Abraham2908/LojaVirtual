@@ -1,8 +1,36 @@
-﻿@{
+﻿@using LojaVirtual.Models;
+@model List<Produtos>
+@{
     ViewData["Title"] = "Home Page";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<br/><br/>
+<h3>Produtos</h3>
+<hr />
+<div class="row">
+    @foreach (var produtos in Model)
+    {
+        <div class="col-4">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">
+                        <label style="font-size: 20px;color: steelblue">@produtos.Nome</label>
+                    </h4>
+                </div>
+                <img src="~/@produtos.Imagem" alt="Card Image" class="card-img-top" style="height: 200px;"/>
+                <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <label style="font-size: 15px;color: #000000"><b>Preço : R$ @produtos.Preco</b></label>
+                        </div>
+                        <a asp-action="Detail" asp-controller="Home" asp-route-id="@produtos.Id" class="btn btn-info">Detalhes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
 </div>
+@*<div>
+    @Html.PagedListPager(Model,c=>Href("~/Customer/Home/Index?page="+c),PagedListRenderOptionsBase.PageNumbersOnly)
+</div>*@
+
+

@@ -4,6 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Localization;
+using System.Globalization;
 
 namespace LojaVirtual.Models
 {
@@ -12,7 +14,9 @@ namespace LojaVirtual.Models
         public int Id { get; set; }
         [Required]
         public string Nome { get; set; }
+
         [Required]
+        [DataType(DataType.Currency)]
         [Display(Name = "Preço")]
         public decimal Preco { get; set; }
         public string Imagem { get; set; }
