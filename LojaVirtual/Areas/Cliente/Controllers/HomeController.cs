@@ -92,5 +92,39 @@ namespace LojaVirtual.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        //GET Remove action methdo
+        [ActionName("Remove")]
+        public IActionResult RemoveToCart(int? id)
+        {
+            List<Produtos> produtos = HttpContext.Session.Get<List<Produtos>>("produtos");
+            if (produtos != null)
+            {
+                var produto = produtos.FirstOrDefault(c => c.Id == id);
+                if (produto != null)
+                {
+                    produtos.Remove(produto);
+                    HttpContext.Session.Set("produtos", produtos);
+                }
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        public IActionResult Remove(int? id)
+        {
+            List<Produtos> produtos = HttpContext.Session.Get<List<Produtos>>("produtos");
+            if (produtos != null)
+            {
+                var produto = produtos.FirstOrDefault(c => c.Id == id);
+                if (produto != null)
+                {
+                    produtos.Remove(produto);
+                    HttpContext.Session.Set("produtos", produtos);
+                }
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+
     }
 }

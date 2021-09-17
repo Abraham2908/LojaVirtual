@@ -7,7 +7,8 @@
 @using Microsoft.AspNetCore.Localization;
 @using System.Globalization;
 @inject IHttpContextAccessor HttpContextAccessor
-@{ List<Produtos> produtos = HttpContextAccessor.HttpContext.Session.Get<List<Produtos>>("produtos");
+@{ 
+    List<Produtos> produtos = HttpContextAccessor.HttpContext.Session.Get<List<Produtos>>("produtos");
                 Produtos produto = null;
                 if (produtos != null)
                 {
@@ -41,15 +42,6 @@
                 </div>
                 <span asp-validation-for="Preco" class="text-danger"></span>
             </div>
-            @*<div class="form-group row">
-                    <div class="col-4">
-                        <label asp-for="Image"></label>
-                    </div>
-                    <div class="col-8">
-                        <input asp-for="Image" class="form-control" type="file" />
-                    </div>
-                    <span asp-validation-for="Image" class="text-danger"></span>
-                </div>*@
             <div class="form-group row">
                 <div class="col-4">
                     <label asp-for="ProdutoCor"></label>
