@@ -24,6 +24,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="images\noimage.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="images\noimage.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.18" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.18" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.18" />
@@ -40,6 +51,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="images\noimage.PNG" />
     <None Include="wwwroot\images\10.jpg" />
     <None Include="wwwroot\images\6.jpg" />
     <None Include="wwwroot\images\7.jpg" />

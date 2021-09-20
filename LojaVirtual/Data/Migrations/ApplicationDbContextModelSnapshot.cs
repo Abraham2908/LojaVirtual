@@ -55,8 +55,8 @@ namespace LojaVirtual.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Preco")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("Preco")
+                        .HasColumnType("float");
 
                     b.Property<string>("ProdutoCor")
                         .HasColumnType("nvarchar(max)");

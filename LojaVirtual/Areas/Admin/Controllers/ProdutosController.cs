@@ -38,7 +38,7 @@ namespace LojaVirtual.Areas.Admin.Controllers
 
         // POST: Index
         [HttpPost]
-        public IActionResult Index(decimal? lowAmount, decimal? largeAmount)
+        public IActionResult Index(double? lowAmount, double? largeAmount)
         {
             var produtos = _context.Produtos.Include(c => c.Categorias).Include(c => c.TagEspecial)
                 .Where(c => c.Preco >= lowAmount && c.Preco <= largeAmount).ToList();
@@ -53,8 +53,8 @@ namespace LojaVirtual.Areas.Admin.Controllers
         // GET: Admin/Produtos/Create
         public IActionResult Create()
         {
-            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "Id", "Categoria");
-            ViewData["TagEspecialId"] = new SelectList(_context.TagEspecial, "Id", "Name");
+            ViewData["CategoriaId"] = new SelectList(_context.Categorias.ToList(), "Id", "Categoria");
+            ViewData["TagEspecialId"] = new SelectList(_context.TagEspecial.ToList(), "Id", "Name");
 
             return View();
         }
@@ -62,40 +62,39 @@ namespace LojaVirtual.Areas.Admin.Controllers
         // POST: Admin/Produtos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Preco,Imagem,ProdutoCor,Disponibilidade,CategoriaId,TagEspecialId")] Produtos produtos,IFormFile image)
+        public async Task<IActionResult> Create(Produtos produto,IFormFile Imagem)
         {
             if (ModelState.IsValid)
             {
                 //METODO QUE VERIFICA SE PRODUTO JÁ EXISTE ANTES DE CRIAR
-                var searchProduct = _context.Produtos.FirstOrDefault(c => c.Nome == produtos.Nome);
+                var searchProduct = _context.Produtos.FirstOrDefault(c => c.Nome == produto.Nome);
                 if (searchProduct != null)
                 {
                     ViewBag.message = "Este produto já existe";
                     ViewData["CategoriaId"] = new SelectList(_context.Categorias.ToList(), "Id", "Categoria");
                     ViewData["TagEspecialId"] = new SelectList(_context.TagEspecial.ToList(), "Id", "Name");
                     
-                    return View(produtos);
+                    return View(produto);
                 }
-
 
                 //METODO DE CAMINHO PARA A IMAGEM E CASO NULL EXIBE SEM IMAGEM
-                if (image != null)
+                if (Imagem != null)
                 {
-                    var name = Path.Combine(_he.WebRootPath + "/Images", Path.GetFileName(image.FileName));
-                    await image.CopyToAsync(new FileStream(name, FileMode.Create));
-                    produtos.Imagem = "Images/" + image.FileName;
+                    var name = Path.Combine(_he.WebRootPath + "/Images", Path.GetFileName(Imagem.FileName));
+                    await Imagem.CopyToAsync(new FileStream(name, FileMode.Create));
+                    produto.Imagem = "Images/" + Imagem.FileName;
                 }
-                if (image == null)
+                if (Imagem == null)
                 {
-                    produtos.Imagem = "Images/noimage.jpg";
+                    produto.Imagem = "Images/noimage.jpg";
                 }
-                _context.Add(produtos);
+                _context.Add(produto);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "Id", "Categoria", produtos.CategoriaId); //ADD nos parametros como deseja exibir
-            ViewData["TagEspecialId"] = new SelectList(_context.TagEspecial, "Id", "Name", produtos.TagEspecialId); //ADD nos parametros como deseja exibir
-            return View(produtos);
+            //ViewData["CategoriaId"] = new SelectList(_context.Categorias, "Id", "Categoria", produtos.CategoriaId); //ADD nos parametros como deseja exibir
+            //ViewData["TagEspecialId"] = new SelectList(_context.TagEspecial, "Id", "Name", produtos.TagEspecialId); //ADD nos parametros como deseja exibir
+            return View(produto);
         }
 
         // GET: Admin/Produtos/Edit/5
@@ -121,9 +120,9 @@ namespace LojaVirtual.Areas.Admin.Controllers
         // POST: Admin/Produtos/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Preco,Imagem,ProdutoCor,Disponibilidade,CategoriaId,TagEspecialId")] Produtos produtos,IFormFile image)
+        public async Task<IActionResult> Edit(int id, Produtos produto,IFormFile Imagem)
         {
-            if (id != produtos.Id)
+            if (id != produto.Id)
             {
                 return NotFound();
             }
@@ -131,25 +130,25 @@ namespace LojaVirtual.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 //METODO DE CAMINHO PARA A IMAGEM E CASO NULL EXIBE SEM IMAGEM
-                if (image != null)
+                if (Imagem != null)
                 {
-                    var name = Path.Combine(_he.WebRootPath + "/Images", Path.GetFileName(image.FileName));
-                    await image.CopyToAsync(new FileStream(name, FileMode.Create));
-                    produtos.Imagem = "Images/" + image.FileName;
+                    var name = Path.Combine(_he.WebRootPath + "/Images", Path.GetFileName(Imagem.FileName));
+                    await Imagem.CopyToAsync(new FileStream(name, FileMode.Create));
+                    produto.Imagem = "Images/" + Imagem.FileName;
                 }
-                if (image == null)
+                if (Imagem == null)
                 {
-                    produtos.Imagem = "Images/noimage.jpg";
+                    produto.Imagem = "Images/noimage.jpg";
                 }
-                _context.Produtos.Update(produtos);
+                _context.Produtos.Update(produto);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             
-            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "Id", "Categoria", produtos.CategoriaId); //ADD nos parametros como deseja exibir
-            ViewData["TagEspecialId"] = new SelectList(_context.TagEspecial, "Id", "Name", produtos.TagEspecialId); //ADD nos parametros como deseja exibir
+            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "Id", "Categoria", produto.CategoriaId); //ADD nos parametros como deseja exibir
+            ViewData["TagEspecialId"] = new SelectList(_context.TagEspecial, "Id", "Name", produto.TagEspecialId); //ADD nos parametros como deseja exibir
 
-            return View(produtos);
+            return View(produto);
         }
 
         // GET: Admin/Produtos/Details/5

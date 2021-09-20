@@ -18,7 +18,7 @@ namespace LojaVirtual.Models
         [Required]
         [DataType(DataType.Currency)]
         [Display(Name = "Preço")]
-        public decimal Preco { get; set; }
+        public double Preco { get; set; }      // Tipo correto seria DECIMAL mas coloquei DOUBLE para corrigir virgula/ponto.
         public string Imagem { get; set; }
 
         [Display(Name = "Cor")]

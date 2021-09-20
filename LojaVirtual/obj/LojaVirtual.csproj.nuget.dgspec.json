@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\meus projetos\\LojaVirtual-master\\LojaVirtual\\LojaVirtual.csproj": {}
+    "C:\\meus projetos\\LojaVirtual-master\\LojaVirtual\\LojaVirtual\\LojaVirtual.csproj": {}
   },
   "projects": {
-    "C:\\meus projetos\\LojaVirtual-master\\LojaVirtual\\LojaVirtual.csproj": {
+    "C:\\meus projetos\\LojaVirtual-master\\LojaVirtual\\LojaVirtual\\LojaVirtual.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\meus projetos\\LojaVirtual-master\\LojaVirtual\\LojaVirtual.csproj",
+        "projectUniqueName": "C:\\meus projetos\\LojaVirtual-master\\LojaVirtual\\LojaVirtual\\LojaVirtual.csproj",
         "projectName": "LojaVirtual",
-        "projectPath": "C:\\meus projetos\\LojaVirtual-master\\LojaVirtual\\LojaVirtual.csproj",
+        "projectPath": "C:\\meus projetos\\LojaVirtual-master\\LojaVirtual\\LojaVirtual\\LojaVirtual.csproj",
         "packagesPath": "C:\\Users\\abrah\\.nuget\\packages\\",
-        "outputPath": "C:\\meus projetos\\LojaVirtual-master\\LojaVirtual\\obj\\",
+        "outputPath": "C:\\meus projetos\\LojaVirtual-master\\LojaVirtual\\LojaVirtual\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
