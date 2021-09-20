@@ -53,15 +53,10 @@ O sistema conta com diversas possibilidades de aprimoramento e implementações 
 
 ---
 
-## 🚀 Como executar o projeto
-
-### Pré-requisitos
-
-🚧  Em Construção  🚧
-
 #### 🎲 Rodando a aplicação
 
-🚧  Em Construção  🚧
+```bash
+🚧 Em Construção 🚧
 
 ```
 ---
