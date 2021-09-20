@@ -31,7 +31,7 @@ Tabela de conteúdos
 :computer: Loja Virtual - é uma aplicação web para Ecommerce
 
 A aplicação é um modelo de Ecommerce em Asp Net Core MVC. Contando com diversas funcionalidades relacionadas a Lojas Virtuais.
-O Website conta com cadastro de categorias, produtos e tags. Como também com duas areas, do cliente e painel de admin. Alguns frameworks utilizados:
+O Website conta com cadastro de categorias, produtos e tags. Como também, duas areas, cliente e painel de admin. Alguns frameworks utilizados:
 Entity, Identity e Alertify JS<br/><br/>
 O sistema conta com diversas possibilidades de aprimoramento e implementações que podem ser realizadas em cima do Projeto.
 
@@ -57,51 +57,11 @@ O sistema conta com diversas possibilidades de aprimoramento e implementações 
 
 ### Pré-requisitos
 
-Antes de começar, você vai precisar ter instalado em sua máquina a seguinte ferramenta:
-[Git](https://git-scm.com). 
-Além disto, é bom ter uma IDE ou editor para trabalhar com o código como [Visual Studio](https://visualstudio.microsoft.com/pt-br/downloads/) no caso de Windows ou 
-[VSCode](https://code.visualstudio.com/) para demais plataformas.
+🚧  Em Construção  🚧
 
 #### 🎲 Rodando a aplicação
 
-```bash
-Visual Studio 2019 -
-
-  Clone este repositório
-$ git clone https://github.com/Abraham2908/ProjetoK
-
-# Abra seu VS 2019, selecione a opção abrir um projeto ou uma solução, vá até o diretorio onde 
-# o projeto foi clonado e selecione o ProjetoK1.sln.
-
-Entity Framework Core
-
-# Agora vamos instalar o EF Core, Para instalar o Entity Framework em nosso projeto vamos usar a opção do 
-# menu Tools-> Nuget Package Manager ->  Package Manage Console.
-
-# Vamos instalar o provider para o SQL Server.
-
-# Digite o seguinte comando : Install-Package Microsoft.EntityFrameworkCore.SqlServer
-
-# A seguir vamos instalar o Microsoft.EntityFrameworkCore.Tools para ter acesso às ferramentas de Scaffolding e 
-# usar o Migrations em nosso projeto.
-
-# Digite o comando : Install-Package Microsoft.EntityFrameworkCore.Tools
-
-Banco de Dados - SQL Server
-
-# O banco de dados está configurado para o LocalDB, versão mais leve do mecanismo do SQL Server destinado
-# ao ambiente de desenvolvimento. 
-# Para mudar a conexão se necessário, é só ir até o arquivo appsettings.json e alterar a Connection string como desejar.
-
-# Abra o Package Manager Console e digite o comando: Update-database
-
-# Abra o SQL Server Object Explorer e em seguida clique no (localdb), vá ate o banco de dados projetok1
-# e verifique a aba tables para verificar se as tables foram criadas.
-# Caso não, digite no Package Manager Console o comando: Add-migration (nome) e em seguida Update-database
-
-# Execute o projeto teclando Ctrl + F5.
-
-# O servidor inciará na https://localhost:44379/ 
+🚧  Em Construção  🚧
 
 ```
 ---
