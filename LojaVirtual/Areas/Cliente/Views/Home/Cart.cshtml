@@ -1,0 +1,50 @@
+﻿@using LojaVirtual.Models;
+@model List<Produtos>
+@{
+    ViewData["Title"] = "Cart";
+}
+
+<h1>Seu Carrinho</h1>
+<br />
+<div class="row">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Imagem</th>
+                <th>Nome</th>
+                <th>Preço</th>
+                <th>Categoria</th>
+                <th>Cor</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="~/@item.Imagem" style="width: 200px; height: 150px;" />
+                    </td>
+                    <td>@item.Nome</td>
+                    <td>@item.Preco</td>
+                    <td>@item.Categorias.Categoria</td>
+                    <td>@item.ProdutoCor</td>
+                    <td>
+                        <a asp-area="Cliente" asp-action="Remove" asp-controller="Home" asp-route-id="@item.Id" class="btn btn-danger">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="row">
+    <div class="col-6">
+        <a asp-action="Index" asp-controller="Home" class="btn btn-info">Voltar</a>
+    </div>
+    <div class="col-6 text-right">
+        <h3>Total : R$ @Model.Sum(c => c.Preco) </h3>
+        <a asp-area="Cliente" asp-action="Checkout" asp-controller="Pedido" class="btn btn-success">Finalizar Compras</a>
+    </div>
+</div>

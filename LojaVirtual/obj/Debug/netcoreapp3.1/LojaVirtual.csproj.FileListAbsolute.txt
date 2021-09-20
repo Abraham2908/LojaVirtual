@@ -561,3 +561,5 @@ C:\meus projetos\LojaVirtual-master\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp
 C:\meus projetos\LojaVirtual-master\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp3.1\LojaVirtual.dll
 C:\meus projetos\LojaVirtual-master\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp3.1\LojaVirtual.pdb
 C:\meus projetos\LojaVirtual-master\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp3.1\LojaVirtual.genruntimeconfig.cache
+C:\meus projetos\LojaVirtual-master\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp3.1\Razor\Areas\Cliente\Views\Home\Cart.cshtml.g.cs
+C:\meus projetos\LojaVirtual-master\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp3.1\Razor\Areas\Cliente\Views\Pedido\Checkout.cshtml.g.cs

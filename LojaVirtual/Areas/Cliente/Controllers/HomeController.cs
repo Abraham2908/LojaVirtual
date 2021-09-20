@@ -92,7 +92,7 @@ namespace LojaVirtual.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //GET Remove action methdo
+        //GET Remover método action
         [ActionName("Remove")]
         public IActionResult RemoveToCart(int? id)
         {
@@ -123,6 +123,17 @@ namespace LojaVirtual.Controllers
                 }
             }
             return RedirectToAction(nameof(Index));
+        }
+
+        //GET Carro de compras método action
+        public IActionResult Cart()
+        {
+            List<Produtos> produtos = HttpContext.Session.Get<List<Produtos>>("produtos");
+            if(produtos == null)
+            {
+                produtos = new List<Produtos>();
+            }
+            return View(produtos);
         }
 
 

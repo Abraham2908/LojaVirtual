@@ -16,7 +16,10 @@ namespace LojaVirtual.Data
         public DbSet<Categorias> Categorias { get; set; }
         public DbSet<TagEspecial> TagEspecial { get; set; }
         public DbSet<Produtos> Produtos { get; set; }
-       
+        public DbSet<Pedido> Pedidos { get; set; }
+        public DbSet<PedidoDetalhes> PedidoDetalhes { get; set; }
+
+
 
     }
 }
